@@ -1,0 +1,390 @@
+
+/* =========================
+   NOCTURNE — GOTHIC Y2K
+========================= */
+
+:root {
+    --bg: #090909;
+    --surface: #111111;
+    --surface-light: #181818;
+    --text: #d5d1ca;
+    --muted: #77736d;
+    --silver: #aaa49a;
+    --red: #762d36;
+    --border: #393531;
+	--font-gothic: 'UniFrakturCook', serif;
+	--font-body: Georgia, serif;
+	--font-mono: 'Courier Prime', monospace
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: Georgia, serif;
+    line-height: 1.7;
+    background-image:
+        radial-gradient(
+            ellipse at top,
+            rgba(90, 70, 70, 0.09),
+            transparent 65%
+        );
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.page-wrapper {
+    width: min(100% - 36px, 760px);
+    margin: auto;
+}
+
+
+
+/* HEADER */
+
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+
+
+.logo {
+    font-family: var(--font-gothic);
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--red);
+    font-size: 10px;
+}
+
+.header-status {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: var(--muted);
+    letter-spacing: 1px;
+}
+
+/* NAVIGATION */
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+
+.navigation a {
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    transition: color .25s;
+}
+
+.navigation a:hover {
+    color: var(--silver);
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 95px 10px 85px;
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-symbol {
+    font-size: 30px;
+    color: var(--silver);
+    margin-bottom: 20px;
+}
+
+.eyebrow {
+    font-family: 'Courier Prime', monospace;
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-family: var(--font-gothic);
+    font-weight: 400;
+    font-size: clamp(32px, 8vw, 54px);
+    line-height: 1.3;
+    margin: 24px 0;
+}
+
+.hero h1 span {
+    color: var(--silver);
+    font-style: italic;
+}
+
+.ornament {
+    color: var(--red);
+    margin: 25px 0;
+    letter-spacing: 5px;
+}
+
+.hero-description {
+    max-width: 420px;
+    margin: auto;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.hero-meta {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 35px;
+}
+
+.hero-meta span {
+    font-family: 'Courier Prime', monospace;
+    color: var(--muted);
+    font-size: 9px;
+}
+
+/* SECTIONS */
+
+.content-section {
+    padding: 65px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.section-heading > span {
+    color: var(--red);
+    font-family: 'Courier Prime', monospace;
+    font-size: 12px;
+}
+
+.section-heading h2 {
+    font-family: var(--font-gothic);
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.section-intro {
+    font-size: 13px;
+    color: var(--muted);
+    margin: 8px 0 30px;
+}
+
+/* INTERESTS */
+
+.interest-list {
+    border-top: 1px solid var(--border);
+}
+
+.interest-item {
+    display: grid;
+    grid-template-columns: 35px 1fr 15px;
+    gap: 12px;
+    padding: 23px 10px;
+    border-bottom: 1px solid var(--border);
+    transition: background .3s;
+}
+
+.interest-item:hover {
+    background: var(--surface);
+}
+
+.item-number {
+    font-family: 'Courier Prime', monospace;
+    color: var(--red);
+    font-size: 11px;
+}
+
+.interest-item h3,
+.journal-entry h3 {
+    font-family: var(--font-gothic);
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.interest-item p,
+.journal-entry p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.item-symbol {
+    color: var(--silver);
+}
+
+/* JOURNAL */
+
+.journal-entry {
+    display: grid;
+    grid-template-columns: 1fr 15px;
+    gap: 10px;
+    padding: 22px 10px;
+    border-bottom: 1px solid var(--border);
+}
+
+.journal-date {
+    grid-column: 1 / -1;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    color: var(--red);
+    letter-spacing: 1px;
+}
+
+.journal-entry > span {
+    color: var(--silver);
+}
+
+/* STATUS PANEL */
+
+.status-panel {
+    margin: 45px 0;
+    padding: 22px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    outline: 1px solid #171513;
+    outline-offset: 4px;
+}
+
+.status-title {
+    font-family: 'Courier Prime', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding-bottom: 13px;
+    border-bottom: 1px solid var(--border);
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #71836c;
+    margin-right: 8px;
+    box-shadow: 0 0 7px #71836c;
+}
+
+.status-content {
+    padding: 18px 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.status-footer {
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    color: var(--red);
+    letter-spacing: 1px;
+}
+
+/* CONTACT */
+
+.contact-links {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.contact-links a {
+    border: 1px solid var(--border);
+    padding: 9px 17px;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    color: var(--silver);
+    transition: .3s;
+}
+
+.contact-links a:hover {
+    background: var(--red);
+    border-color: var(--red);
+    color: white;
+}
+
+/* FOOTER */
+
+.site-footer {
+    text-align: center;
+    padding: 45px 10px;
+}
+
+.footer-symbol {
+    color: var(--red);
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.site-footer p {
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    color: var(--silver);
+    letter-spacing: 1px;
+}
+
+.site-footer span {
+    display: block;
+    color: var(--muted);
+    font-family: 'Courier Prime', monospace;
+    font-size: 9px;
+    margin: 12px 0;
+}
+
+.site-footer a {
+    display: inline-block;
+    font-family: 'Courier Prime', monospace;
+    font-size: 10px;
+    color: var(--red);
+    margin-top: 12px;
+}
+
+/* DESKTOP */
+
+@media (min-width: 700px) {
+    .page-wrapper {
+        width: min(100% - 60px, 760px);
+    }
+
+    .hero {
+        padding: 125px 20px 110px;
+    }
+
+    .content-section {
+        padding: 80px 0;
+    }
+
+    .interest-item {
+        padding: 26px 15px;
+    }
+
+    .journal-entry {
+        grid-template-columns: 120px 1fr 15px;
+    }
+
+    .journal-date {
+        grid-column: auto;
+        align-self: center;
+    }
+}

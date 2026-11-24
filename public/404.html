@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 — Kazzpars Portal</title>
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #000080;
+            background-image:
+                linear-gradient(45deg, #000066 25%, transparent 25%),
+                linear-gradient(-45deg, #000066 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #000066 75%),
+                linear-gradient(-45deg, transparent 75%, #000066 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0;
+            font-family: "Courier New", Courier, monospace;
+        }
+
+        .dialog {
+            width: min(440px, 100%);
+            background: #C0C0C0;
+            border: 3px outset #FFFFFF;
+            box-shadow: 6px 6px 0 #000000;
+            color: #000000;
+        }
+
+        .titlebar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 5px 8px;
+            background: linear-gradient(90deg, #000080, #1084D0);
+            color: #FFFFFF;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .titlebar button {
+            width: 22px;
+            height: 22px;
+            font-family: inherit;
+            font-weight: bold;
+            background: #C0C0C0;
+            border: 2px outset #FFFFFF;
+            cursor: pointer;
+        }
+
+        .titlebar button:active {
+            border-style: inset;
+        }
+
+        .dialog-body {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 22px 18px;
+        }
+
+        .error-icon {
+            flex: 0 0 auto;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #FF0000;
+            color: #FFFFFF;
+            font-size: 30px;
+            font-weight: bold;
+            border: 3px outset #FF6666;
+        }
+
+        .message p {
+            margin: 0 0 10px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .message p:last-child {
+            margin-bottom: 0;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            padding: 0 18px 18px;
+        }
+
+        .actions a,
+        .actions button {
+            padding: 6px 18px;
+            background: #C0C0C0;
+            border: 3px outset #FFFFFF;
+            color: #000000;
+            font-family: inherit;
+            font-weight: bold;
+            font-size: 13px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .actions a:active,
+        .actions button:active {
+            border-style: inset;
+        }
+
+        .actions a:focus-visible,
+        .actions button:focus-visible {
+            outline: 2px dotted #000000;
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div
+        class="dialog"
+        role="alertdialog"
+        aria-labelledby="error-title"
+        aria-describedby="error-message"
+    >
+        <div class="titlebar">
+            <span id="error-title">ERROR</span>
+            <button
+                type="button"
+                aria-label="Kembali ke beranda"
+                onclick="location.href='./index.html'"
+            >X</button>
+        </div>
+
+        <div class="dialog-body">
+            <div class="error-icon" aria-hidden="true">✕</div>
+
+            <div class="message" id="error-message">
+                <p><strong>404 — PAGE NOT FOUND</strong></p>
+                <p>
+                    Halaman yang kamu cari sudah pindah, dihapus,
+                    atau memang tidak pernah ada.
+                </p>
+                <p>Kemungkinan besar dimakan hiu. 🦈</p>
+            </div>
+        </div>
+
+        <div class="actions">
+            <button type="button" onclick="history.back()">GO BACK</button>
+            <a href="./index.html">BACK TO HOME</a>
+        </div>
+    </div>
+</body>
+</html>

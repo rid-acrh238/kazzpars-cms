@@ -1,0 +1,7 @@
+# Folder upload — JANGAN pernah eksekusi script di sini.
+# Perlindungan ekstra kalau di-deploy ke shared hosting cPanel.
+<FilesMatch "\.(?i:php|phtml|php3|php4|php5|phar|pl|py|cgi|sh)$">
+    Require all denied
+</FilesMatch>
+
+Options -ExecCGI -Indexes

@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://rid-acrh238.github.io/kazzpars-cms/sitemap.xml

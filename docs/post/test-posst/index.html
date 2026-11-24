@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>test posst — Kazzpars Portal</title>
+
+    <meta name="description" content="Kazzpars Portal — blog personal retro milik Kazzpars, mahasiswa Informatika: tulisan, project, skills, guestbook, dan musik.">
+    <meta name="theme-color" content="#000080">
+
+    <!-- Open Graph. Setelah deploy, ganti og:image dengan URL absolut (https://...). -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Kazzpars Portal — Personal Blog">
+    <meta property="og:description" content="Blog personal retro ala GeoCities: tulisan, project, skills, guestbook, dan musik.">
+    <meta property="og:image" content="https://rid-acrh238.github.io/kazzpars-cms/img/photo.jpeg">
+
+    <link rel="icon" type="image/svg+xml" href="https://rid-acrh238.github.io/kazzpars-cms/favicon.svg">
+
+    <link rel="stylesheet" href="https://rid-acrh238.github.io/kazzpars-cms/style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
+
+    <script src="https://rid-acrh238.github.io/kazzpars-cms/music.js" defer></script>
+    <script src="https://rid-acrh238.github.io/kazzpars-cms/dateTime.js" defer></script>
+    <script src="https://rid-acrh238.github.io/kazzpars-cms/retro.js" defer></script>
+</head>
+
+<body>
+
+    <!-- BOOT SCREEN -->
+    <div id="boot-screen" role="status">
+        <img src="https://rid-acrh238.github.io/kazzpars-cms/img/loading.gif" alt="">
+        <p>LOADING KAZZPARS PORTAL...</p>
+    </div>
+
+    <div class="retro-layout">
+
+        <!-- SIDEBAR KIRI: JAM, MUSIK, DEKORASI -->
+<aside class="retro-sidebar">
+
+    <!-- Clock and Calendar -->
+    <section id="retro-datetime">
+        <div class="datetime-header">
+            <i class="fa-regular fa-clock"></i>
+            SYSTEM DATE & TIME.EXE
+        </div>
+
+        <div class="clock-display">
+            <div class="clock-label">CURRENT TIME</div>
+            <div id="digital-clock">00:00:00</div>
+            <div id="clock-period">WIB (UTC+7)</div>
+        </div>
+
+        <div class="calendar-display">
+            <div class="calendar-heading">
+                <i class="fa-regular fa-calendar-days"></i>
+                <span id="calendar-month">MONTH YEAR</span>
+            </div>
+
+            <div class="calendar-weekdays">
+                <span>MIN</span>
+                <span>SEN</span>
+                <span>SEL</span>
+                <span>RAB</span>
+                <span>KAM</span>
+                <span>JUM</span>
+                <span>SAB</span>
+            </div>
+
+            <div id="calendar-days" class="calendar-days"></div>
+
+            <div id="calendar-today" class="calendar-today">
+                TODAY: -
+            </div>
+        </div>
+    </section>
+
+    <!-- Music Player -->
+    <section id="music-player">
+        <div class="player-title">
+            <i class="fa-solid fa-compact-disc"></i>
+            KAZZPARS PLAYER.EXE
+            <span class="player-version">v1.0</span>
+        </div>
+
+        <div class="player-body">
+            <div class="album-icon" id="album-icon">
+                <i class="fa-solid fa-compact-disc"></i>
+            </div>
+
+            <div class="player-info">
+                <div class="now-playing">NOW PLAYING:</div>
+                <div id="track-name">No track selected</div>
+
+                <div class="equalizer" id="equalizer">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <audio id="audio-player" preload="metadata"></audio>
+
+        <div class="player-controls">
+            <button id="prev-track" aria-label="Previous track">
+                <i class="fa-solid fa-backward-step"></i>
+            </button>
+
+            <button id="play-pause" aria-label="Play music">
+                <i class="fa-solid fa-play"></i>
+            </button>
+
+            <button id="next-track" aria-label="Next track">
+                <i class="fa-solid fa-forward-step"></i>
+            </button>
+
+            <span id="player-time">00:00 / 00:00</span>
+        </div>
+
+        <div class="progress-container">
+            <div id="progress-bar"></div>
+        </div>
+
+        <label class="volume-control">
+            <i class="fa-solid fa-volume-high"></i>
+            Volume
+
+            <input
+                id="volume-slider"
+                type="range"
+                min="0"
+                max="1"
+                step="0.05"
+                value="0.7"
+            >
+        </label>
+
+        <div id="player-status" role="status" aria-live="polite">
+            READY TO PLAY
+        </div>
+    </section>
+
+    <!-- Sidebar Decoration -->
+    <div class="sidebar-decoration">
+        <p>✦ YOU ARE VISITOR ✦</p>
+        <img
+            src="https://rid-acrh238.github.io/kazzpars-cms/img/underconstruction.gif"
+            alt="Under construction"
+            loading="lazy"
+        >
+        <p>BEST VIEWED WITH CURIOSITY!</p>
+    </div>
+
+</aside>
+
+        <!-- KOLOM TENGAH: BLOG -->
+        <div class="retro-main-column">
+            <header class="site-header">
+                <a href="https://rid-acrh238.github.io/kazzpars-cms" class="logo">Kazzpars <span>Portal</span></a>
+
+                <h1>Welcome to My Blog</h1>
+
+                <nav class="navigation">
+                                        <ul>
+                        <li><a href="https://rid-acrh238.github.io/kazzpars-cms#home">Home</a></li>
+                        <li><a href="https://rid-acrh238.github.io/kazzpars-cms#about">About</a></li>
+                        <li><a href="https://rid-acrh238.github.io/kazzpars-cms#projects">Projects</a></li>
+                        <li><a href="https://rid-acrh238.github.io/kazzpars-cms#skills">Skills</a></li>
+                        <li><a href="https://rid-acrh238.github.io/kazzpars-cms#guestbook">Guestbook</a></li>
+                        <li><a href="https://rid-acrh238.github.io/kazzpars-cms#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <main class="retro-main">
+                    <div class="retro-banner">
+        <span class="banner-star">★</span>
+        <span>TEST POSST</span>
+        <span class="banner-star">★</span>
+    </div>
+
+    <div class="blog-stream">
+        <article class="blog-post" id="test-posst">
+            <div class="post-header">
+                <span class="post-date">
+                    <i class="fa-regular fa-calendar-days" aria-hidden="true"></i>
+                    24 NOV 2026
+                </span>
+                <span class="post-category">
+                    GENERAL
+                </span>
+            </div>
+
+            <h1 class="post-title">test posst</h1>
+
+                            <figure class="retro-figure">
+                    <figcaption class="retro-figure-bar">
+                        <i class="fa-solid fa-image" aria-hidden="true"></i>
+                        TEST POSST.JPG
+                    </figcaption>
+                    <img
+                        src="https://rid-acrh238.github.io/kazzpars-cms/uploads/test-posst-1795496714-dqwp.jpg"
+                        alt="Cover: test posst"
+                        class="post-cover post-cover-single"
+                        loading="lazy"
+                    >
+                </figure>
+            
+            <div class="post-body">
+                ini adalah halaman tes
+            </div>
+
+            <div class="post-footer">
+                <span class="post-tags">
+                    #test-posst                </span>
+            </div>
+        </article>
+    </div>
+
+    <p class="home-link">
+        <a href="https://rid-acrh238.github.io/kazzpars-cms">&laquo; Kembali ke beranda</a>
+    </p>
+            </main>
+        </div>
+
+        <!-- SIDEBAR KANAN: WIDGETS -->
+<aside class="retro-widgets">
+
+    <!-- Profile -->
+    <section class="widget">
+        <div class="widget-title">
+            <i class="fa-solid fa-user" aria-hidden="true"></i>
+            PROFILE.SYS
+        </div>
+        <div class="widget-body">
+            <img
+                src="https://rid-acrh238.github.io/kazzpars-cms/img/photo.jpeg"
+                alt="Foto Kazzpars"
+                class="widget-photo"
+                loading="lazy"
+            >
+            <p class="widget-bio">
+                Halo! Aku <strong>Kazzpars</strong>, mahasiswa
+                Informatika yang suka teknologi, Linux, dan web.
+            </p>
+            <a href="https://rid-acrh238.github.io/kazzpars-cms#about" class="widget-more">
+                Baca selengkapnya &raquo;
+            </a>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="widget">
+        <div class="widget-title">
+            <i class="fa-solid fa-tags" aria-hidden="true"></i>
+            CATEGORIES
+        </div>
+        <div class="widget-body">
+            <ul class="widget-list">
+                                    <li>
+                        <a href="https://rid-acrh238.github.io/kazzpars-cms#blog">
+                            About
+                        </a>
+                        <span>(1)</span>
+                    </li>
+                                    <li>
+                        <a href="https://rid-acrh238.github.io/kazzpars-cms#blog">
+                            Guestbook
+                        </a>
+                        <span>(1)</span>
+                    </li>
+                                    <li>
+                        <a href="https://rid-acrh238.github.io/kazzpars-cms#blog">
+                            Personal
+                        </a>
+                        <span>(1)</span>
+                    </li>
+                                    <li>
+                        <a href="https://rid-acrh238.github.io/kazzpars-cms#blog">
+                            Projects
+                        </a>
+                        <span>(1)</span>
+                    </li>
+                                    <li>
+                        <a href="https://rid-acrh238.github.io/kazzpars-cms#blog">
+                            Skills
+                        </a>
+                        <span>(1)</span>
+                    </li>
+                                    <li>
+                        <a href="https://rid-acrh238.github.io/kazzpars-cms#blog">
+                            Test
+                        </a>
+                        <span>(1)</span>
+                    </li>
+                            </ul>
+        </div>
+    </section>
+
+    <!-- Archive -->
+    <section class="widget">
+        <div class="widget-title">
+            <i class="fa-solid fa-box-archive" aria-hidden="true"></i>
+            ARCHIVE
+        </div>
+        <div class="widget-body">
+            <ul class="widget-list">
+                                    <li>
+                        <a href="https://rid-acrh238.github.io/kazzpars-cms#blog">
+                            November 2026
+                        </a>
+                        <span>(7)</span>
+                    </li>
+                            </ul>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="widget" id="contact">
+        <div class="widget-title">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            CONTACT
+        </div>
+        <div class="widget-body">
+            <p>
+                Punya ide proyek, ingin berdiskusi, atau sekadar
+                menyapa? Kirim pesan kepadaku!
+            </p>
+
+            <div class="contact-buttons widget-contact">
+                <a
+                    href="mailto:kazzpars0@gmail.com"
+                    class="contact-button"
+                >
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                    EMAIL ME
+                </a>
+
+                <a
+                    href="https://github.com/rid-acrh238"
+                    class="contact-button"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    MY GITHUB
+                </a>
+            </div>
+
+            <p class="contact-footer">
+                BEST REGARDS FROM KAZZPARS
+            </p>
+        </div>
+    </section>
+
+    <!-- Blogroll -->
+    <section class="widget">
+        <div class="widget-title">
+            <i class="fa-solid fa-link" aria-hidden="true"></i>
+            BLOGROLL
+        </div>
+        <div class="widget-body">
+            <ul class="widget-list">
+                <li>
+                    <a href="https://rid-acrh238.github.io/kazzpars-cms/nocturne.html">
+                        Nocturne — quiet archive
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://github.com/rid-acrh238"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        My GitHub
+                    </a>
+                </li>
+                <li>
+                    <a
+                        href="https://kazzpars.atabook.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Guestbook wall
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+</aside>
+
+    </div>
+
+    <footer>
+        <p>
+            &copy; 2026 KAZZPARS | All Rights Reserved |
+            Designed by Kazzpars
+        </p>
+        <p>Best viewed with curiosity! 💾</p>
+        <p class="footer-portal-link">
+            <a href="https://rid-acrh238.github.io/kazzpars-cms/nocturne.html">ENTER NOCTURNE ✦</a>
+        </p>
+    </footer>
+
+</body>
+</html>
