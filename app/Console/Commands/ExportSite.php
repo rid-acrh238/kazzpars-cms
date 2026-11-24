@@ -155,7 +155,7 @@ class ExportSite extends Command
         // ---------------------------------------------------------------
         // 6. sitemap.xml + robots.txt
         // ---------------------------------------------------------------
-        $this->writeFile($outputPath . '/sitemap.xml', $this->sitemap($url, $pages));
+        $this->writeFile($outputPath . '/sitemap.xml', $this->sitemap($url, $pages, array_keys($pages)));
         $this->writeFile(
             $outputPath . '/robots.txt',
             "User-agent: *\nDisallow:\n\nSitemap: {$url}/sitemap.xml\n"
@@ -221,19 +221,59 @@ class ExportSite extends Command
      */
     private function absoluteUrls(string $html): string
     {
-        return preg_replace(
+        $html = preg_replace(
             '/\b(src|href|content)="(\/(?!\/)[^"]*)"/',
             '$1="' . $this->url . '$2"',
             $html
         );
+
+        return $this->trailingSlashes($html);
     }
 
-    private function sitemap(string $url, array $pages): string
+    /**
+     * Tambahkan trailing slash pada link internal yang menunjuk "folder".
+     *
+     * GitHub Pages melayani /post/welcome/ (200) sedangkan /post/welcome
+     * di-redirect 301. Link langsung pakai slash supaya tidak ada redirect
+     * dan Google tidak menganggapnya dua URL berbeda.
+     */
+    private function trailingSlashes(string $html): string
+    {
+        $base = preg_quote($this->url, '/');
+
+        return preg_replace_callback(
+            '/\b(href|src)="(' . $base . '[^"]*)"/',
+            function (array $m): string {
+                $url = $m[2];
+
+                // Pisahkan fragment (#anchor) dulu
+                $fragment = '';
+                if (($hash = strpos($url, '#')) !== false) {
+                    $fragment = substr($url, $hash);
+                    $url = substr($url, 0, $hash);
+                }
+
+                // URL yang sudah punya slash atau menunjuk berkas (ada titik di
+                // segmen terakhir, mis. style.css) dibiarkan apa adanya.
+                $last = substr($url, strrpos($url, '/') ?: 0);
+                if (str_ends_with($url, '/') || str_contains($last, '.')) {
+                    return $m[0];
+                }
+
+                return $m[1] . '="' . $url . '/' . $fragment . '"';
+            },
+            $html
+        );
+    }
+
+    private function sitemap(string $url, array $pages, array $paths): string
     {
         $items = '';
 
-        foreach (array_keys($pages) as $path) {
-            $loc = $path === '/' ? $url . '/' : $url . $path;
+        foreach ($paths as $path) {
+            // GitHub Pages melayani folder dengan trailing slash — pakai URL
+            // yang sama supaya Google tidak menganggapnya duplikat.
+            $loc = $path === '/' ? $url . '/' : $url . $path . '/';
             $items .= "  <url>\n    <loc>{$loc}</loc>\n  </url>\n";
         }
 
